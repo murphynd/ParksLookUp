@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using ParksLookUp.Models;
+using System.Collections.Generic;
+using System.Linq;
+
 
 namespace ParksLookUp.Controllers
 {
@@ -18,34 +18,42 @@ namespace ParksLookUp.Controllers
     }
     // GET api/parks
     [HttpGet]
-    public ActionResult<IEnumerable<string>> Get()
+    public ActionResult<IEnumerable<Park>> Get()
     {
-      return new string[] { "value1", "value2" };
+      return _db.Parks.ToList();
     }
 
     // GET api/parks/5
     [HttpGet("{id}")]
-    public ActionResult<string> Get(int id)
+    public ActionResult<Park> Get(int id)
     {
-      return "value";
+      return _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
     }
 
     // POST api/parks
     [HttpPost]
-    public void Post([FromBody] string value)
+    public void Post([FromBody] Park park)
     {
+      _db.Parks.Add(park);
+      _db.SaveChanges();
     }
 
     // PUT api/parks/5
     [HttpPut("{id}")]
-    public void Put(int id, [FromBody] string value)
+    public void Put(int id, [FromBody] Park park)
     {
+      park.ParkId = id;
+      _db.Entry(park).State = EntityState.Modified;
+      _db.SaveChanges();
     }
 
     // DELETE api/parks/5
     [HttpDelete("{id}")]
     public void Delete(int id)
     {
+      var parkToDelete = _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
+      _db.Parks.Remove(parkToDelete);
+      _db.SaveChanges();
     }
   }
 }
