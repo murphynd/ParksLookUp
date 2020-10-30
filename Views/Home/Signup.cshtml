@@ -1,0 +1,27 @@
+@* @{
+  Layout = "_Layout";
+  }
+  @using ParksLookUp.Dtos.
+  @using ParksLookUp.Model.User
+  <div class="container">
+  <div class="jumbotron">
+  <h2>Register a new user</h2>
+  <hr />
+  @using (Html.BeginForm("register", "user", FormMethod.Post))
+  {
+  @Html.LabelFor(FirstName)
+  @Html.TextBoxFor(FirstName)
+
+  @Html.LabelFor(LastName)
+  @Html.TextBoxFor(LastName)
+
+  @Html.LabelFor(user => user.Username)
+  @Html.TextBoxFor(Username)
+
+  @Html.LabelFor(Password)
+  @Html.TextBoxFor(Password)
+
+  <input type="submit" value="register" />
+  }
+  </div>
+  </div> *@
