@@ -173,13 +173,13 @@ Explore the API endpoints in Postman or a browser. You will not be able to utili
 
 ### Using Swagger Documentation
 
-To explore the Travel API with NSwag, launch the project using `dotnet run` with the Terminal or Powershell, and input the following URL into your browser: `http://localhost:5003/swagger/index.html`
+To explore the Travel API with NSwag, launch the project using `dotnet run` with the Terminal or Powershell, and input the following URL into your browser: `http://localhost:5000/swagger/index.html`
 
-### Using the JSON Web Token
+<!-- ### Using the JSON Web Token
 
 In order to be authorized to use the POST, PUT, DELETE functionality of the API, please authenticate yourself through Postman.
 
-- Open Postman and create a POST request using the URL: `http://localhost:5003/users/authenticate`
+- Open Postman and create a POST request using the URL: `http://localhost:5000/users/authenticate`
 - Add the following query to the request as raw data and select JSON in the Body tab:
 
 ```
@@ -197,7 +197,7 @@ In order to be authorized to use the POST, PUT, DELETE functionality of the API,
 
 The ParksLookUp API returns a default of 10 results per page at a time, up to a maximum of 50.
 
-To modify this, use the query parameters `pageLimit` and `pageNumber` to alter the response results displayed. The `pageLimit` parameter will specify how many results will be displayed, and the `pageNumber` parameter will specify which element in the response the limit should start counting.
+To modify this, use the query parameters `pageLimit` and `pageNumber` to alter the response results displayed. The `pageLimit` parameter will specify how many results will be displayed, and the `pageNumber` parameter will specify which element in the response the limit should start counting. -->
 
 <!-- #### Example Query
 
@@ -211,35 +211,36 @@ To use default, _don't include_ `pageLimit` and `pageNumber` or set them equal t
 
 ### Endpoints
 
-Base URL: `http://localhost:5003`
+Base URL: `http://localhost:5000`
 
-<!-- ### Places
+### Places
 
-Access Reviews and ratings from place around the world
+Access Titles and descriptions on Parks in the USA.
 
 #### HTTP Request
 
 ```
-GET /api/places
-POST /api/places
-GET /api/places/{id}
-PUT /api/places/{id}
-DELETE /api/places/{id}
+GET /api/parks
+POST /api/parks
+GET /api/parks/{id}
+PUT /api/parks/{id}
+DELETE /api/parks/{id}
 ```
 
 #### Path Parameters
 
-| Parameter |  Type  | Default | Required | Description                      |
-| :-------: | :----: | :-----: | :------: | -------------------------------- |
-| landmark  | string |  none   |  false   | Return matches by landmark name. |
-|   city    | string |  none   |  false   | Return matches by city name.     |
-|  country  | string |  none   |  false   | Return matches by country name.  |
-|  rating   |  int   |  none   |  false   | Return matches by rating value.  |
+| Parameter |  Type  | Default | Required | Description                                         |
+| :-------: | :----: | :-----: | :------: | --------------------------------------------------- |
+|   Title   | string |  none   |  false   | Return matches by Title of Park.                    |
+| Location  | string |  none   |  false   | Return matches by location name.                    |
+|   Desc    | string |  none   |  false   | Return matches by description of park.              |
+|   Kind    | string |  none   |  false   | Return matches by kind of park (State or National). |
+|  Rating   |  int   |  none   |  false   | Return matches by rating value.                     |
 
 #### Example Query
 
 ```
-http://localhost:5003/api/places/?city=seattle&country=usa
+http://localhost:5000/api/parks/?Location=Wyoming&kind=national
 ```
 
 #### Sample JSON Response
@@ -271,7 +272,7 @@ http://localhost:5003/api/places/?city=seattle&country=usa
 }
 ```
 
---- -->
+---
 
 ### 🤝 Contributors
 

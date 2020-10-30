@@ -18,9 +18,26 @@ namespace ParksLookUp.Controllers
     }
     // GET api/parks
     [HttpGet]
-    public ActionResult<IEnumerable<Park>> Get()
+    public ActionResult<IEnumerable<Park>> Get(string title, int rating, string location, string kind)
     {
-      return _db.Parks.ToList();
+      var query = _db.Parks.AsQueryable();
+      if (title != null)
+      {
+        query = query.Where(entry => entry.Title.Contains(title));
+      }
+      if (rating != 0)
+      {
+        query = query.Where(entry => entry.Rating == rating);
+      }
+      if (location != null)
+      {
+        query = query.Where(entry => entry.Location.Contains(location));//contains will capture all instances with the name query = query.Where(entry => entry.Name.Contains(name));
+      }
+      if (kind != null)
+      {
+        query = query.Where(entry => entry.Kind == kind);
+      }
+      return query.ToList();
     }
 
     // GET api/parks/5

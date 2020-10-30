@@ -24,7 +24,7 @@ namespace ParksLookUp
       services.AddDbContext<ParksLookUpContext>(opt =>
     opt.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
-      services.AddSwaggerGen();
+      services.AddSwaggerGen(); // add this
     }
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
@@ -36,11 +36,11 @@ namespace ParksLookUp
       {
         app.UseHsts();
       }
-      app.UseSwagger();
+      app.UseSwagger();// add this
       app.UseSwaggerUI(c =>
       {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-      });
+      }); // add this and add to csproj and swaggar is good to go! 
 
       app.UseMvc();
     }

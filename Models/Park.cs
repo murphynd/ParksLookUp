@@ -7,6 +7,7 @@ namespace ParksLookUp.Models
     public string Title { get; set; }
     public string Location { get; set; }
     public string Desc { get; set; }
+    public string Kind { get; set; }
     public DateTime Date { get; set; }
 
     public int Rating { get; set; }
