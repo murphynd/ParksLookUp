@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using ParksLookUp.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 
 namespace ParksLookUp.Controllers
@@ -45,6 +46,23 @@ namespace ParksLookUp.Controllers
     public ActionResult<Park> Get(int id)
     {
       return _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
+    }
+    //GET api/parks/best?rating=x
+    [HttpGet("best")]
+    public ActionResult<IEnumerable<Park>> BestAbove(int rating)
+    {
+      var query = _db.Parks.AsQueryable();
+      query = query.Where(entry => entry.Rating >= rating);
+      return query.ToList();
+    }
+    //GET api/parks/random
+    [HttpGet("random")]
+    public ActionResult<Park> Get()
+    {
+      int count = _db.Parks.Count();
+      int index = new Random().Next(count);
+
+      return _db.Parks.Skip(index).FirstOrDefault();
     }
 
     // POST api/parks

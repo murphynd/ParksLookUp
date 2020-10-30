@@ -246,29 +246,15 @@ http://localhost:5000/api/parks/?Location=Wyoming&kind=national
 #### Sample JSON Response
 
 ```
+
 {
-    "pageNumber": 1,
-    "pageSize": 10,
-    "firstPage": "http://localhost:5003/api/places?pageNumber=1&pageSize=10",
-    "lastPage": "http://localhost:5003/api/places?pageNumber=1&pageSize=10",
-    "totalPages": 1,
-    "totalRecords": 7,
-    "nextPage": null,
-    "previousPage": null,
-    "data": [
-        {
-            "placeId": -4,
-            "landmark": "starbucks",
-            "city": "Seattle",
-            "country": "USA",
-            "review": "Hills",
-            "date": "2020-10-27T14:05:54.262646",
-            "rating": 4
-        }
-    ],
-    "succeeded": true,
-    "errors": null,
-    "message": null
+    "parkId": -4,
+    "title": "Yellowstone",
+    "location": "Wyoming",
+    "desc": "USA",
+    "kind": "National",
+    "date": "2020-10-30T12:04:52.470664",
+    "rating": 4
 }
 ```
 
