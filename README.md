@@ -204,7 +204,7 @@ To modify this, use the query parameters `pageLimit` and `pageNumber` to alter t
 <!-- #### Example Query
 
 ```
-http://localhost:5003/api/places/?city=seattle&pageLimit=50&pageNumber=1
+http://localhost:5000/api/places/?city=seattle&pageLimit=50&pageNumber=1
 ```
 
 To use default, _don't include_ `pageLimit` and `pageNumber` or set them equal to zero. -->
@@ -314,13 +314,9 @@ SOFTWARE.
 
 > "A school for tech careers... to help people learn the skills they need to get great jobs."
 
-#### [The Internet](https://webfoundation.org/)
+---
 
-> "...the first thing that humanity has built that humanity doesn't understand..."
->
-> - Eric Schmidt, Google (Alphabet Inc.)
-
-### Guidance Used
+### 🍎 Guidance Used
 
 [Guidence on Paging in ASP.NET Core Web API](https://www.codewithmukesh.com/blog/pagination-in-aspnet-core-webapi/)
 
@@ -328,6 +324,8 @@ SOFTWARE.
 
 [Guidance on setting up Swagger](https://dev.to/avishekp86/adding-swagger-through-vscode-525p)
 
----
+[Guidance on a great API README - LondresRi](https://github.com/LondresRi)
+
+## ‿︵‿︵‿ヽ(°□° )ノ︵‿︵‿︵
 
 <center><a href="#">Return to Top</a></center>
