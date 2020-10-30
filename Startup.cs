@@ -24,13 +24,8 @@ namespace ParksLookUp
       services.AddDbContext<ParksLookUpContext>(opt =>
     opt.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
-      //   services.AddSwaggerGen();
-
-
-
+      services.AddSwaggerGen();
     }
-
-
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
       if (env.IsDevelopment())
@@ -41,11 +36,11 @@ namespace ParksLookUp
       {
         app.UseHsts();
       }
-      //   app.UseSwagger();
-      //   app.UseSwaggerUI(c =>
-      //   {
-      //     c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-      //   });
+      app.UseSwagger();
+      app.UseSwaggerUI(c =>
+      {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+      });
 
       app.UseMvc();
     }
