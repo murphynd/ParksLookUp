@@ -9,6 +9,6 @@ namespace ParksLookUp.Models
     public string Desc { get; set; }
     public DateTime Date { get; set; }
 
-    public int rating { get; set; }
+    public int Rating { get; set; }
   }
 }
