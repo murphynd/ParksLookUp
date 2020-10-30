@@ -175,7 +175,7 @@ Explore the API endpoints in Postman or a browser. You will not be able to utili
 
 To explore the Travel API with NSwag, launch the project using `dotnet run` with the Terminal or Powershell, and input the following URL into your browser: `http://localhost:5000/swagger/index.html`
 
-<!-- ### Using the JSON Web Token
+### Using the JSON Web Token
 
 In order to be authorized to use the POST, PUT, DELETE functionality of the API, please authenticate yourself through Postman.
 
