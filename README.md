@@ -8,6 +8,8 @@
     <a>
         <img src="https://i.etsystatic.com/5390831/r/il/334d35/1025562151/il_1588xN.1025562151_t7z2.jpg">
     </a>
+    <a href="https://www.etsy.com/listing/273734806/national-parks-sunrise-patch">
+            <small>Buy this Patch</small>
     <p align="center">
       ___________________________
     </p>
@@ -193,7 +195,7 @@ In order to be authorized to use the POST, PUT, DELETE functionality of the API,
 - Select Type: Bearer Token
 - Now you can do a call
 
-### Note on Pagination
+<!-- ### Note on Pagination
 
 The ParksLookUp API returns a default of 10 results per page at a time, up to a maximum of 50.
 
@@ -223,6 +225,8 @@ Access Titles and descriptions on Parks in the USA.
 GET /api/parks
 POST /api/parks
 GET /api/parks/{id}
+GET /api/parks/random
+GET /api/parks/best?rating=x
 PUT /api/parks/{id}
 DELETE /api/parks/{id}
 ```
