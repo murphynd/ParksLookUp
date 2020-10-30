@@ -1,6 +1,6 @@
 <br>
 <p align="center">
-  <u><big>|| <b>Travel API</b> ||</big></u>
+  <u><big>|| <b>NPS API</b> ||</big></u>
 </p>
 <p align="center">
     <!-- Project Avatar/Logo -->
@@ -199,13 +199,13 @@ The ParksLookUp API returns a default of 10 results per page at a time, up to a 
 
 To modify this, use the query parameters `pageLimit` and `pageNumber` to alter the response results displayed. The `pageLimit` parameter will specify how many results will be displayed, and the `pageNumber` parameter will specify which element in the response the limit should start counting.
 
-#### Example Query
+<!-- #### Example Query
 
 ```
 http://localhost:5003/api/places/?city=seattle&pageLimit=50&pageNumber=1
 ```
 
-To use default, _don't include_ `pageLimit` and `pageNumber` or set them equal to zero.
+To use default, _don't include_ `pageLimit` and `pageNumber` or set them equal to zero. -->
 
 ..........................................................................................
 
