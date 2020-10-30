@@ -1,6 +1,6 @@
 <br>
 <p align="center">
-  <u><big>|| <b>NPS API</b> ||</big></u>
+  <u><big>|| <b>Parks API</b> ||</big></u>
 </p>
 <p align="center">
     <!-- Project Avatar/Logo -->
@@ -179,19 +179,36 @@ To explore the Travel API with NSwag, launch the project using `dotnet run` with
 
 ### Using the JSON Web Token
 
-In order to be authorized to use the POST, PUT, DELETE functionality of the API, please authenticate yourself through Postman.
+In order to be authorized to use the POST, PUT, DELETE functionality of the API, please authenticate yourself through Swagger and Postman.
 
-- Open Postman and create a POST request using the URL: `http://localhost:5000/users/authenticate`
-- Add the following query to the request as raw data and select JSON in the Body tab:
+- Open `http://localhost:5000/swagger/index.html`
+- Select POST /users/register. fill out
 
 ```
 {
-    "UserName": "test",
-    "Password": "test"
+  "Id": 0,
+  "FirstName": "string",
+  "LastName": "string",
+  "Username": "string",
+  "Password": "string"
 }
 ```
 
-- The token will be generated in the response. Copy and paste it as the Token paramenter in the Authorization tab.
+- in Swagger Try out /users/authenticate. fill out with your information you registered with.
+
+```
+{
+  "Id": 0,
+  "FirstName": "Your first name",
+  "LastName": "Your last name ",
+  "Username": "Your user name ",
+  "Password": "Your password"
+}
+```
+
+- The token will be generated in the response.
+- Go to POSTMAN
+- Copy and paste the token as the Token paramenter in the Authorization tab.
 - Select Type: Bearer Token
 - Now you can do a call
 
@@ -235,11 +252,11 @@ DELETE /api/parks/{id}
 
 | Parameter |  Type  | Default | Required | Description                                         |
 | :-------: | :----: | :-----: | :------: | --------------------------------------------------- |
-|   Title   | string |  none   |  false   | Return matches by Title of Park.                    |
-| Location  | string |  none   |  false   | Return matches by location name.                    |
-|   Desc    | string |  none   |  false   | Return matches by description of park.              |
-|   Kind    | string |  none   |  false   | Return matches by kind of park (State or National). |
-|  Rating   |  int   |  none   |  false   | Return matches by rating value.                     |
+|   Title   | string |  none   |   true   | Return matches by Title of Park.                    |
+| Location  | string |  none   |   true   | Return matches by location name.                    |
+|   Desc    | string |  none   |   true   | Return matches by description of park.              |
+|   Kind    | string |  none   |   true   | Return matches by kind of park (State or National). |
+|  Rating   |  int   |    0    |  false   | Return matches by rating value.                     |
 
 #### Example Query
 
@@ -259,6 +276,51 @@ http://localhost:5000/api/parks/?Location=Wyoming&kind=national
     "kind": "National",
     "date": "2020-10-30T12:04:52.470664",
     "rating": 4
+}
+```
+
+### USERS
+
+Register as a user and navigate the site.
+
+#### HTTP Request
+
+```
+
+POST /Users/authenticate
+POST /Users/register
+GET /Users
+GET /Users/{id}
+PUT /Users/{id}
+DELETE /Users/{id}
+```
+
+#### Path Parameters
+
+| Parameter |  Type  | Default | Required | Description      |
+| :-------: | :----: | :-----: | :------: | ---------------- |
+| FirstName | string |  none   |   true   | Users first name |
+| LastName  | string |  none   |   true   | Users last name  |
+| Username  | string |  none   |   true   | Users username   |
+| Password  | string |  none   |   true   | Users password   |
+
+#### Example Query
+
+(with an authorization)
+
+```
+http://localhost:5000/users/1
+```
+
+#### Sample JSON Response
+
+```
+{
+    "id": 1,
+    "firstName": "Natalie",
+    "lastName": "Murphy",
+    "username": "KAleCat",
+    "password": null
 }
 ```
 
@@ -321,6 +383,8 @@ SOFTWARE.
 [Guidence on Paging in ASP.NET Core Web API](https://www.codewithmukesh.com/blog/pagination-in-aspnet-core-webapi/)
 
 [Guidance on JWT Authentication](https://jasonwatmore.com/post/2018/08/14/aspnet-core-21-jwt-authentication-tutorial-with-example-api)
+
+[Guidance on JWT Authentication, Registration and User Management](https://jasonwatmore.com/post/2018/06/26/aspnet-core-21-simple-api-for-authentication-registration-and-user-management)
 
 [Guidance on setting up Swagger](https://dev.to/avishekp86/adding-swagger-through-vscode-525p)
 
