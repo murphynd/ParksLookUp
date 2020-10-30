@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ParksLookUp.Models;
+using AutoMapper;
+
 
 namespace ParksLookUp
 {
@@ -24,6 +26,9 @@ namespace ParksLookUp
 
     public void ConfigureServices(IServiceCollection services)
     {
+      services.AddCors();
+      services.AddAutoMapper();
+
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
       services.AddDbContext<ParksLookUpContext>(opt =>
@@ -68,6 +73,10 @@ namespace ParksLookUp
       {
         app.UseHsts();
       }
+      app.UseCors(x => x
+               .AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader());
       app.UseSwagger();// Swagger
 
       app.UseSwaggerUI(c =>

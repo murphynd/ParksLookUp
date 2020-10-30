@@ -11,6 +11,7 @@ namespace ParksLookUp.Models
     }
 
     public DbSet<Park> Parks { get; set; }
+    public DbSet<User> Users { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
