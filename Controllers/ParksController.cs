@@ -1,10 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
-using ParksLookUp.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
-
+using Microsoft.AspNetCore.Authorization;
+using ParksLookUp.Models;
 
 namespace ParksLookUp.Controllers
 {
@@ -32,7 +32,7 @@ namespace ParksLookUp.Controllers
       }
       if (location != null)
       {
-        query = query.Where(entry => entry.Location.Contains(location));//contains will capture all instances with the name query = query.Where(entry => entry.Name.Contains(name));
+        query = query.Where(entry => entry.Location.Contains(location));
       }
       if (kind != null)
       {
@@ -66,6 +66,7 @@ namespace ParksLookUp.Controllers
     }
 
     // POST api/parks
+    [Authorize]
     [HttpPost]
     public void Post([FromBody] Park park)
     {
@@ -74,6 +75,7 @@ namespace ParksLookUp.Controllers
     }
 
     // PUT api/parks/5
+    [Authorize]
     [HttpPut("{id}")]
     public void Put(int id, [FromBody] Park park)
     {
@@ -83,6 +85,7 @@ namespace ParksLookUp.Controllers
     }
 
     // DELETE api/parks/5
+    [Authorize]
     [HttpDelete("{id}")]
     public void Delete(int id)
     {
