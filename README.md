@@ -60,11 +60,10 @@
 
 ### 📖 Description
 
-An API that functions as catalog for National Parks in the USA. It utilizes RESTful principles, pagination, Swagger and has integrated authentication via JWT Authentication to keep the API Read-Only for all users except administrators.
+An API that functions as catalog for National & State Parks in the USA. It utilizes RESTful principles, Swagger and has integrated authentication via JWT Authentication to keep the API Read-Only for all users except administrators.
 
 ### 🦠 Known Bugs
 
-- Authentication is not fully set up for user
 - This is not a real API.
 
 ### 🛠 Built With
@@ -142,15 +141,19 @@ To view or edit the code, you will need an code editor or text editor. The popul
 
 ```
 {
+
+  "AppSettings": {
+    "Secret": "THIS IS USED TO SIGN AND VERIFY JWT TOKENS, REPLACE IT WITH YOUR OWN SECRET, IT CAN BE ANY STRING"
+  },
+
   "Logging": {
-      "LogLevel": {
+    "LogLevel": {
       "Default": "Warning"
-      }
+    }
   },
   "AllowedHosts": "*",
   "ConnectionStrings": {
-      "DefaultConnection": "Server=localhost;Port=3306;database=ParksLookUp;uid=root;pwd=YourPassword;"
-  }
+    "DefaultConnection": "Server=localhost;Port=3306;database=ParksLookUp;uid=root;pwd=epicodus;"
 }
 ```
 
@@ -187,10 +190,10 @@ In order to be authorized to use the POST, PUT, DELETE functionality of the API,
 ```
 {
   "Id": 0,
-  "FirstName": "string",
-  "LastName": "string",
-  "Username": "string",
-  "Password": "string"
+  "FirstName": "Your first name",
+  "LastName": "Your last name ",
+  "Username": "Your user name ",
+  "Password": "Your password"
 }
 ```
 
@@ -198,7 +201,7 @@ In order to be authorized to use the POST, PUT, DELETE functionality of the API,
 
 ```
 {
-  "Id": 0,
+  "Id": 1,
   "FirstName": "Your first name",
   "LastName": "Your last name ",
   "Username": "Your user name ",
@@ -379,8 +382,6 @@ SOFTWARE.
 ---
 
 ### 🍎 Guidance Used
-
-[Guidence on Paging in ASP.NET Core Web API](https://www.codewithmukesh.com/blog/pagination-in-aspnet-core-webapi/)
 
 [Guidance on JWT Authentication](https://jasonwatmore.com/post/2018/08/14/aspnet-core-21-jwt-authentication-tutorial-with-example-api)
 
